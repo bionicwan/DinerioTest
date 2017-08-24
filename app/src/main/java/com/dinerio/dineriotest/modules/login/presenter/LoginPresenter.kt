@@ -10,7 +10,7 @@ import com.dinerio.dineriotest.modules.login.data.LoginApiClient
  * Created by JC on 23/08/2017.
  */
 class LoginPresenter(view: View): Presenter {
-    private var mView = view
+    private val mView = view
     private var mApiClient: ApiClient? = null
 
     override fun sendData(username: String?, password: String?) {
@@ -18,6 +18,7 @@ class LoginPresenter(view: View): Presenter {
             getApiClient()?.login(username!!, password!!,
                     {
                         Application.instance.getPreferenceUtils()?.saveUserToken(it)
+                        mView.launchHome()
                     },
                     {})
         }

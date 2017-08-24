@@ -23,7 +23,7 @@ class Application: Application() {
 
     fun getPreferenceUtils(): PreferenceUtils? {
         if(mPreferenceUtils == null)
-            mPreferenceUtils = PreferenceUtils(this)
+            mPreferenceUtils = PreferenceUtils.getInstance(this)
 
         return mPreferenceUtils
     }

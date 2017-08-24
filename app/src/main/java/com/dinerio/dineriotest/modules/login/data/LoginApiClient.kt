@@ -28,8 +28,6 @@ class LoginApiClient: ApiClient {
                         val tokenElement = response.body()?.get("access_token")
                         success.invoke(tokenElement?.asString ?: "")
                     }
-
-                    print("Success")
                 }
             }
 

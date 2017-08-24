@@ -41,11 +41,8 @@ class SplashActivity: AppCompatActivity(), View {
     /**
      * View methods
      */
-    override fun launchHome() {
-        startActivity(Intent(this, HomeActivity::class.java))
-    }
-
     override fun launchLogin() {
         startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 }

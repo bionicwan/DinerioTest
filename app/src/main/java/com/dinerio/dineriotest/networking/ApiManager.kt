@@ -7,6 +7,8 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 /**
@@ -19,9 +21,9 @@ interface ApiManager {
                     .addInterceptor { chain ->
                         val request = chain.request()
                         val builder = request.newBuilder()
-                        val sessionStr = Application.instance.
+                        val sessionStr = "bearer " + Application.instance.
                                 getPreferenceUtils()?.getUserToken()
-                        builder.header("authorization", "Bearer " + sessionStr)
+                        builder.header("Authorization", sessionStr)
                         builder.method(request.method(), request.body())
                         chain.proceed(builder.build())
                     }.build()
@@ -38,4 +40,7 @@ interface ApiManager {
 
     @POST("login")
     fun login(@Body params: JsonObject): Call<JsonObject>
+
+    @GET("me")
+    fun me(): Call<JsonObject>
 }

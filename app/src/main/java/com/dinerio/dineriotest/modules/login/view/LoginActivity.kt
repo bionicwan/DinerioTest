@@ -1,5 +1,6 @@
 package com.dinerio.dineriotest.modules.login.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
@@ -10,6 +11,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.dinerio.dineriotest.R
+import com.dinerio.dineriotest.modules.home.view.HomeActivity
 import com.dinerio.dineriotest.modules.login.Presenter
 import com.dinerio.dineriotest.modules.login.View
 import com.dinerio.dineriotest.modules.login.presenter.LoginPresenter
@@ -54,6 +56,8 @@ class LoginActivity : AppCompatActivity(), View {
     }
 
     override fun launchHome() {
+        startActivity(Intent(this, HomeActivity::class.java))
+        finish()
     }
 
     /**

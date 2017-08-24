@@ -8,9 +8,13 @@ import android.content.SharedPreferences
  */
 class PreferenceUtils internal constructor(context: Context) {
     val PREFERENCES_NAME = "PropiedadesSharedPreferences"
+    var sharedPreferences: SharedPreferences? = null
+
+    init {
+        sharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
+    }
 
     companion object {
-        var sharedPreferences: SharedPreferences? = null
         var sharedPreferencesHelper: PreferenceUtils? = null
 
         @JvmStatic

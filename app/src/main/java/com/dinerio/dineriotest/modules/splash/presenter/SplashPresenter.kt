@@ -15,12 +15,7 @@ class SplashPresenter(view :View): Presenter {
     override fun initialize() {
         val handler = Handler()
         handler.postDelayed({
-            val userToken = Application.instance.getPreferenceUtils()?.getUserToken()
-            if(userToken != null && userToken.isNotEmpty()) {
-                mView.launchHome()
-            } else {
-                mView.launchLogin()
-            }
+            mView.launchLogin()
         }, 500)
     }
 
